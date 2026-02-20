@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ZERA XII Brand Colors */
+    --burgundy: #7A0F14;
+    --cream: #F3E8D9;
+    --gold: #D4AF37;
+    --gold-light: #E8C547;
+    --gold-dark: #B8960C;
+    --espresso: #2B1E1A;
+    --taupe: #7A6B63;
+    
+    --background: 36 45% 92%;
+    --foreground: 355 79% 27%;
+    --card: 36 45% 94%;
+    --card-foreground: 355 79% 27%;
+    --popover: 36 45% 94%;
+    --popover-foreground: 355 79% 27%;
+    --primary: 355 79% 27%;
+    --primary-foreground: 36 45% 92%;
+    --secondary: 36 30% 88%;
+    --secondary-foreground: 355 79% 27%;
+    --muted: 36 20% 85%;
+    --muted-foreground: 15 12% 42%;
+    --accent: 45 65% 52%;
+    --accent-foreground: 355 79% 27%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 50% 65%;
+    --input: 36 20% 88%;
+    --ring: 45 65% 52%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#F3E8D9] text-[#7A0F14] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono-label {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  
+  /* Gold Text Gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #B8960C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Gold Border Gradient */
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #D4AF37, #E8C547, #B8960C) 1;
+  }
+  
+  /* Gold Shadow */
+  .shadow-gold {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+  }
+  
+  .shadow-gold-lg {
+    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.35);
+  }
+  
+  /* Hairline */
+  .hairline {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
+  }
+  
+  .hairline-horizontal {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  }
+  
+  /* Primary Button - Burgundy with Gold Hover */
+  .btn-primary {
+    @apply px-8 py-4 bg-burgundy text-cream transition-all duration-300 font-body text-sm font-medium tracking-widest uppercase;
+    border: 1px solid #7A0F14;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-gold text-burgundy;
+    border-color: #D4AF37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  }
+  
+  /* Gold Button */
+  .btn-gold {
+    @apply px-8 py-4 bg-gold text-burgundy transition-all duration-300 font-body text-sm font-medium tracking-widest uppercase;
+    border: 1px solid #D4AF37;
+  }
+  
+  .btn-gold:hover {
+    @apply bg-burgundy text-gold;
+    border-color: #7A0F14;
+    box-shadow: 0 4px 20px rgba(122, 15, 20, 0.3);
+  }
+  
+  /* Outline Gold Button */
+  .btn-outline-gold {
+    @apply px-6 py-3 bg-transparent text-gold transition-all duration-300 font-body text-xs font-medium tracking-widest uppercase;
+    border: 1px solid #D4AF37;
+  }
+  
+  .btn-outline-gold:hover {
+    @apply bg-gold text-burgundy;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  }
+  
+  /* WhatsApp Button */
+  .btn-whatsapp {
+    @apply px-4 py-3 bg-[#25D366] text-white transition-all duration-300 font-body text-xs font-medium tracking-wide;
+    border: 1px solid #25D366;
+  }
+  
+  .btn-whatsapp:hover {
+    background: #128C7E;
+    border-color: #128C7E;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  }
+  
+  /* Grain Overlay */
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  /* Luxury Card */
+  .card-luxury {
+    @apply bg-cream/80 backdrop-blur-sm overflow-hidden transition-all duration-500;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 32px rgba(122, 15, 20, 0.08);
+  }
+  
+  .card-luxury:hover {
+    border-color: rgba(212, 175, 55, 0.8);
+    box-shadow: 0 12px 48px rgba(212, 175, 55, 0.2);
+    transform: translateY(-4px);
+  }
+  
+  /* Gold Frame */
+  .gold-frame {
+    position: relative;
+  }
+  
+  .gold-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Section Title with Gold Accent */
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-burgundy;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  }
+  
+  /* Filter Button Active */
+  .filter-active {
+    @apply bg-burgundy text-cream;
+    border-color: #7A0F14;
+  }
+  
+  /* Elegant Input */
+  .input-elegant {
+    @apply w-full bg-cream/50 border border-gold/30 text-burgundy px-4 py-3 font-body text-sm focus:outline-none transition-all;
+  }
+  
+  .input-elegant:focus {
+    @apply border-gold;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+  
+  .input-elegant::placeholder {
+    @apply text-taupe/60;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-burgundy {
+    background-color: #7A0F14;
+  }
+  
+  .bg-cream {
+    background-color: #F3E8D9;
+  }
+  
+  .bg-gold {
+    background-color: #D4AF37;
+  }
+  
+  .text-burgundy {
+    color: #7A0F14;
+  }
+  
+  .text-cream {
+    color: #F3E8D9;
+  }
+  
+  .text-gold {
+    color: #D4AF37;
+  }
+  
+  .border-burgundy {
+    border-color: #7A0F14;
+  }
+  
+  .border-cream {
+    border-color: #F3E8D9;
+  }
+  
+  .border-gold {
+    border-color: #D4AF37;
+  }
+}
