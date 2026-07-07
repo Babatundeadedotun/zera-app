@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: zeraxii-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        value: aderinwaleblessing@gmail.com
+      - key: ADMIN_DEFAULT_PASSWORD
+        sync: false
+      - key: GMAIL_USER
+        value: aderinwaleblessing@gmail.com
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
